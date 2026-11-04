@@ -89,23 +89,6 @@ There is no systematic upward trend with age. The increased variability at high 
 
 The model has a high false-positive rate: structural conditions raise the risk, but actual diversions depend on unpredictable events (weather, incidents). The practical implication is that mitigation should target **system-level levers** (arrival schedule management, monitoring high-risk operating contexts) rather than individual aircraft.
 
----
-
-## 📁 Repository Structure
-
-```
-.
-├── README.md
-├── part1_mcmc/
-│   ├── part1.ipynb        # Python implementation
-│   └── part1.Rmd          # R implementation
-├── part2_flights/
-│   ├── part2.ipynb        # Python implementation
-│   └── part2.Rmd          # R implementation
-├──                 # Figures used in this README
-└── report/                # Written report (PDF)
-```
-
 ## ▶️ How to Reproduce
 
 **Part 1** needs no external data.
