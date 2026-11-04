@@ -37,7 +37,7 @@ Everything is implemented in **Python** and replicated in **R**.
 | Standard deviation | ≈ 1.32 | √2 ≈ 1.414 |
 | Acceptance rate | ≈ 70.8% | n/a |
 
-![Empirical vs theoretical density](images/histogram.png)
+![Empirical vs theoretical density](histogram.png)
 
 The empirical distribution matches the Laplace density closely, including the sharp peak at zero. The acceptance rate (~70%) is well above the ~44% optimum for 1-D random-walk Metropolis, which means the proposal is conservative: the chain moves in small steps, is autocorrelated, and the standard deviation converges more slowly than the mean.
 
@@ -45,7 +45,7 @@ The empirical distribution matches the Laplace density closely, including the sh
 
 R̂ is computed over a grid of 50 proposal scales `s ∈ [0.001, 1]`, using 4 chains started from overdispersed values (−5, −2, 2, 5), 2,000 iterations each and a 500-iteration burn-in. Very small scales mix badly (R̂ is very large), and R̂ falls below the 1.05 threshold as soon as `s` becomes reasonable.
 
-![Gelman-Rubin diagnostic](images/convergence.png)
+![Gelman-Rubin diagnostic](convergence.png)
 
 ---
 
@@ -63,13 +63,13 @@ R̂ is computed over a grid of 50 proposal scales `s ∈ [0.001, 1]`, using 4 ch
 
 Average arrival delay by scheduled departure hour and day of week, per year. Slots with fewer than **1,000 flights** are excluded from the ranking, so that a handful of observations cannot produce a misleadingly good average.
 
-![Delay heatmaps](images/delay_heatmaps.png)
+![Delay heatmaps](delay_heatmaps.png)
 
 A consistent "green zone" appears in the early morning: aircraft that overnight at the gate depart on time regardless of earlier disruptions. Later in the day, tight turnaround buffers let delays propagate through the network.
 
 ### (b) Impact of aircraft age on delays
 
-![Aircraft age and delays](images/aircraft_age_delays.png)
+![Aircraft age and delays](aircraft_age_delays.png)
 
 There is no systematic upward trend with age. The increased variability at high ages likely reflects small samples and survivorship effects. This is consistent with modern maintenance regimes decoupling mechanical ageing from operational reliability.
 
@@ -79,13 +79,13 @@ There is no systematic upward trend with age. The increased variability at high 
 - **Sampling:** 500,000 non-cancelled flights per year, drawn by selecting row IDs in Python instead of using the slow `ORDER BY RANDOM()` in SQLite (seed 42).
 - **Features:** month, day of week, scheduled departure hour, scheduled arrival hour, distance, origin latitude, destination latitude, carrier (label-encoded).
 
-![AUC-ROC by year](images/auc_by_year.png)
+![AUC-ROC by year](auc_by_year.png)
 
-![Standardised coefficients](images/diversion_coefficients.png)
+![Standardised coefficients](diversion_coefficients.png)
 
-![Odds ratios](images/odds_ratios.png)
+![Odds ratios](odds_ratios.png)
 
-![Confusion matrices](images/confusion_matrices_5years.png)
+![Confusion matrices](confusion_matrices_5years.png)
 
 The model has a high false-positive rate: structural conditions raise the risk, but actual diversions depend on unpredictable events (weather, incidents). The practical implication is that mitigation should target **system-level levers** (arrival schedule management, monitoring high-risk operating contexts) rather than individual aircraft.
 
@@ -102,7 +102,7 @@ The model has a high false-positive rate: structural conditions raise the risk, 
 ├── part2_flights/
 │   ├── part2.ipynb        # Python implementation
 │   └── part2.Rmd          # R implementation
-├── images/                # Figures used in this README
+├──                 # Figures used in this README
 └── report/                # Written report (PDF)
 ```
 
